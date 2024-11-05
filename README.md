@@ -54,17 +54,9 @@ This project is a high-performance search engine built using the MERN (MongoDB, 
     npm start
     ```
 
-## Usage
-
-- Access the frontend at `https://code-it-289o.onrender.com`.
-
 ## Contributing
 
 Contributions are welcome! Please fork the repository and submit a pull request for any improvements or bug fixes.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgements
 
