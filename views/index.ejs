@@ -149,16 +149,16 @@
     <section class="footer">
       <div class="footer-container">
         <a
-          href="https://www.linkedin.com/in/jayesh-kumar-128634232/"
+          href="https://www.linkedin.com/in/kritek-gupta-31412423a/"
           target="_blank"
           class="footer-link link-1"
           ><img src="/icons8-linkedin.svg" alt=""
         /></a>
-        <a href="mailto: jk141003@gmail.com" class="footer-link link-2"
+        <a href="mailto: kritekgupta@gmail.com" class="footer-link link-2"
           ><img src="/icons8-mail-50.png" alt=""
         /></a>
       </div>
-      <div class="copy-container">&copy; 2024 Made by Jayesh Kumar</div>
+      <div class="copy-container">&copy; 2024 Made by Kritek Gupta</div>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
@@ -167,84 +167,84 @@
 
     <script>
       gsap.fromTo(
-        ".header-laptop-1",
+        '.header-laptop-1',
         { x: -800, rotation: 40 },
-        { x: 0, rotation: 0, duration: 2, ease: "expo.out" }
+        { x: 0, rotation: 0, duration: 2, ease: 'expo.out' }
       );
       gsap.fromTo(
-        ".header-laptop-4",
+        '.header-laptop-4',
         { x: 2000, rotation: -60 },
-        { x: 0, rotation: 0, duration: 2, delay: 1, ease: "expo.out" }
+        { x: 0, rotation: 0, duration: 2, delay: 1, ease: 'expo.out' }
       );
       gsap.fromTo(
-        ".header-laptop-5",
+        '.header-laptop-5',
         { y: -800 },
-        { y: 0, duration: 2, delay: 0.5, ease: "expo.out" }
+        { y: 0, duration: 2, delay: 0.5, ease: 'expo.out' }
       );
       gsap.fromTo(
-        ".header-laptop-6",
+        '.header-laptop-6',
         { y: -800 },
-        { y: 0, duration: 2, delay: 2, ease: "expo.out" }
+        { y: 0, duration: 2, delay: 2, ease: 'expo.out' }
       );
       gsap.fromTo(
-        ".header-laptop-2",
+        '.header-laptop-2',
         { y: -800, rotation: 30 },
-        { y: 0, rotation: 0, duration: 2, delay: 2, ease: "bounce.out" }
+        { y: 0, rotation: 0, duration: 2, delay: 2, ease: 'bounce.out' }
       );
     </script>
 
     <script>
-      let typed = new Typed(".auto-type", {
-        strings: ["Coding^500", "Sleeping^500", "Eating^500"],
+      let typed = new Typed('.auto-type', {
+        strings: ['Coding^500', 'Sleeping^500', 'Eating^500'],
         typeSpeed: 150,
         backSpeed: 150,
         loop: true,
-        cursorChar: "_",
+        cursorChar: '_',
       });
     </script>
 
     <script>
-      const form = document.querySelector("form");
+      const form = document.querySelector('form');
       const questionElement = form.question;
-      const resultSection = document.querySelector(".results");
+      const resultSection = document.querySelector('.results');
 
-      const loadingSection = document.querySelector(".loading-div");
-      const questionLinks = document.querySelectorAll(".title");
-      const questionText = document.querySelectorAll(".body");
-      const noResultsDiv = document.querySelector(".no-results");
+      const loadingSection = document.querySelector('.loading-div');
+      const questionLinks = document.querySelectorAll('.title');
+      const questionText = document.querySelectorAll('.body');
+      const noResultsDiv = document.querySelector('.no-results');
       // console.log(questionLinks);
       // console.log(questionText);
-      form.addEventListener("submit", async (e) => {
+      form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        loadingSection.style.display = "block";
-        resultSection.style.display = "none";
-        noResultsDiv.style.display = "none";
+        loadingSection.style.display = 'block';
+        resultSection.style.display = 'none';
+        noResultsDiv.style.display = 'none';
 
         for (let i = 0; i < questionLinks.length; i++) {
-          questionLinks[i].querySelector("a").innerHTML = "";
-          questionLinks[i].querySelector("a").setAttribute("href", "#");
-          questionText[i].querySelector("p").innerHTML = "";
+          questionLinks[i].querySelector('a').innerHTML = '';
+          questionLinks[i].querySelector('a').setAttribute('href', '#');
+          questionText[i].querySelector('p').innerHTML = '';
         }
         const query = questionElement.value;
 
         try {
           //   console.log("HELLO");
-          const res = await fetch(`/search?query=${query}`, { method: "GET" });
+          const res = await fetch(`/search?query=${query}`, { method: 'GET' });
           const data = await res.json();
 
-          loadingSection.style.display = "none";
+          loadingSection.style.display = 'none';
 
           if (data.length === 0) {
-            noResultsDiv.style.display = "block";
+            noResultsDiv.style.display = 'block';
           } else {
-            resultSection.style.display = "grid";
+            resultSection.style.display = 'grid';
             for (let i = 0; i < questionLinks.length; i++) {
-              questionLinks[i].querySelector("a").innerHTML = data[i].title;
+              questionLinks[i].querySelector('a').innerHTML = data[i].title;
               questionLinks[i]
-                .querySelector("a")
-                .setAttribute("href", `/question/${data[i].id}`);
-              questionText[i].querySelector("p").innerHTML = data[i].problem;
+                .querySelector('a')
+                .setAttribute('href', `/question/${data[i].id}`);
+              questionText[i].querySelector('p').innerHTML = data[i].problem;
             }
           }
 
